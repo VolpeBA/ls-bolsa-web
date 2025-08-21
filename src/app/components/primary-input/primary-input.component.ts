@@ -1,6 +1,8 @@
 import {Component, forwardRef, Input} from '@angular/core';
 import {NG_VALUE_ACCESSOR, ReactiveFormsModule} from '@angular/forms';
 
+type InputTypes = "text" | "email" | "password"
+
 @Component({
   selector: 'app-primary-input',
   standalone: true,
@@ -14,7 +16,23 @@ import {NG_VALUE_ACCESSOR, ReactiveFormsModule} from '@angular/forms';
       multi: true
     }
   ],
-  templateUrl: './primary-input.component.html',
+  template: `
+    <div class="input-wrapper">
+      <label [for]="inputName">{{ label }}</label>
+      <div class="input-content">
+        <input
+          [type]="type"
+          [placeholder]="placeholder"
+          [value]="value"
+          (input)="onInput($event)"
+        />
+        <div class="icon">
+          <ng-content></ng-content>
+        </div>
+      </div>
+    </div>
+
+  `,
   styleUrl: './primary-input.component.scss'
 })
 export class PrimaryInputComponent {

@@ -1,23 +1,32 @@
 <main>
   <section class="form-section">
+    <img src="/assets/svg/logo.svg" alt="Logo LSBolsa"/>
 
-    <img src="/assets/svg/logo-white.svg" alt="Logo LSBolsa"/>
+    <h2>{{ title }}</h2>
+    <ng-content></ng-content>
 
-    <h2></h2>
+    <div class="btn-wrapper">
+      <button
+        class="btn-primary"
+        (click)="submit()"
+        [disabled]="disablePrimaryBtn">
+        {{ primaryBtnText }}
+      </button>
 
-    <button></button>
+      <div class="divider">
+        <div></div>
+        <span>or</span>
+        <div></div>
+      </div>
 
-    <div><span>or</span></div>
+      <button class="btn-secondary" (click)="navigate()">{{ secondaryBtnText }}</button>
 
-    <button></button>
-
+    </div>
   </section>
 
   <section class="main-section">
-
-    <h1>Bem vindo, ao LS Bolsa!</h1>
-    <img src="/assets/svg/logo-white.svg" alt="Logo LSBolsa"/>
-
+    <h1>You Should, MoveIt!</h1>
+    <img src="/assets/svg/logo.svg" alt="Logo LSBolsa"/>
   </section>
 
 </main>
